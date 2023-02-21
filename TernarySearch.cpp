@@ -18,7 +18,7 @@ int main () {
     int j = n;
     int m1;
     int m2;
-    while (i < j ) {
+    while (i <= j ) {
     	m1 = i + (j - i)/3;
 		m2 = j - (j - i)/3;
         if (x < a[m1]) j = m1 - 1;
