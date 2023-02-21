@@ -28,7 +28,7 @@ int main () {
         else {
         	i = m1 + 1;
         	j = m2 - 1;
-		}
+	}
     }
     if (x == a[i]) {
         location = i;
