@@ -37,6 +37,7 @@ int main () {
         location = j;
     }
     else location = 0;
+// location là chỉ số dưới của số hạng bằng x, bằng 0 nếu không tìm thấy x. 
     cout << "Vi tri cua khoa la: " << location;
 
     return 0;
