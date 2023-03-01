@@ -10,7 +10,41 @@ string dec2bin (int num){
     }
     return ans;
 }
+void bin(int a, int b){
+    while (a || b){
+        cout << (a & 1) << endl;
+        cout << (b & 1) << endl;
+        a >>= 1;
+        b >>= 1;
+    }
+}
+int add_pro(int a, int b){
+    int nho = 0, ans = 0;
+    int pos = 0;
+    while (a || b){
+        int A = a & 1, B = b & 1;
+        int d = (A + B + nho) / 2;
+        ans = ((A + B + nho - 2 * d) << (pos++)) + ans;
+        nho = d;
+        a >>= 1;
+        b >>= 1;
+    }
+    ans = (nho << pos) + ans;
+    return ans;
+}
 
+int multiple_pro(int a, int b){
+    int n = ceil(log2(max(a, b)));
+    int pro = 0;
+    for (int i = 0; i < n; i++){
+        int B = b & 1;
+        b >>= 1;
+        int c = 0;
+        if (B) c = (a << i);
+        pro = add_pro(pro, c);
+    }
+    return pro;
+}
 int add (int a, int b){
     string A = dec2bin(a);
     string B = dec2bin(b);
@@ -67,9 +101,11 @@ int main(){
     }
     int a, b;
     cin >> a >> b;
-    cout << add(a, b) << endl;
-    //cout << a << " : " << dec2bin(a) << endl << b << " : " << dec2bin(b) << endl;
+    //cout << a + b;
+    // cout << add(a, b) << endl;
+    // //cout << a << " : " << dec2bin(a) << endl << b << " : " << dec2bin(b) << endl;
 
-    cout << multiple(a, b);
-
+    // cout << multiple(a, b);
+    cout << add_pro(a, b) << endl;
+    cout << multiple_pro(a, b);
 }
