@@ -3,6 +3,7 @@
 using namespace std;
 
 int main () {
+	//test commit
     int n, a[100];
     cout << "Nhap so phan tu cua day: " ; 
     cin >> n;
@@ -37,6 +38,8 @@ int main () {
     }
     else location = 0;
     cout << "Vi tri cua khoa la: " << location;
+
+
     // location là chỉ số dưới của số hạng bằng x, bằng 0 nếu không tìm thấy x.
     return 0;
 }
